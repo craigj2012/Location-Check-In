@@ -17,28 +17,7 @@
     <script src="scripts/app.js"></script>
 </head>
 <body>
-    <!--Home View-->
-    <div id="tabstrip-home"
-        data-role="view"
-        data-title="Home">
-        <header data-role="header">
-            <div data-role="navbar">
-                <span data-role="view-title"></span>
-                <a id="skin-change" data-role="button" data-align="right" data-click="app.changeSkin">Flat</a>
-            </div>
-        </header>
-
-        <h3>Welcome!</h3>
-        <p>
-            Telerik AppBuilder&trade; enables you to build cross-platform device applications regardless of your
-            development platform by combining the convenience of a local development toolset with the
-            power and flexibility of the cloud.
-        </p>
-        <div class="welcome-image"></div>
-    </div>
-
-    <!--Login View-->
-    <div id="tabstrip-login"
+     <div id="tabstrip-login"
         data-role="view"
         data-title="Login"
         data-model="app.loginService.viewModel">
@@ -65,8 +44,41 @@
                 </li>
             </ul>
             <input id="login" type="submit" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" value="Login" class="login-button" />
+            <a>Sign Up</a>
         </form>
     </div>
+    <!--Home View-->
+    <div id="tabstrip-home"
+        data-role="view"
+        data-title="Home">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+                <a id="skin-change" data-role="button" data-align="right" data-click="app.changeSkin">Flat</a>
+            </div>
+        </header>
+
+        <h3>Welcome!</h3>
+        <p>
+            Telerik AppBuilder&trade; enables you to build cross-platform device applications regardless of your
+            development platform by combining the convenience of a local development toolset with the
+            power and flexibility of the cloud.
+        </p>
+     
+        <div>
+           <br />
+                 <div class="results">
+                    <div id="results" class="desc"></div>
+                </div>
+               
+            <a onclick="app.checkin" class="check_in">Check In</a>
+            <a onclick="app.checkin" class="sos">SOS</a>
+            </div>
+        <a data-role="button"data-click="app.checkin" data-icon="favorites" href="">Check In</a>
+    </div>
+
+    <!--Login View-->
+   
 
     <!--Location View-->
     <div id="tabstrip-location"
