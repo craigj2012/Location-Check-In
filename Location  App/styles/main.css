@@ -17,7 +17,7 @@
     margin: 0px auto;
 }
 /*Button Styles*/
-.check_in
+#check_in
 {
     
 display:block;
@@ -30,7 +30,7 @@ display:block;
     text-align:center;
     background:green!important;
 }
-.sos
+#sos
 {
     
 display:block;width:200px;height:100px;border-radius:50px!important;font-size:25px;color:#fff;line-height:100px;text-align:center;background:red!important;
@@ -155,7 +155,7 @@ display:block;width:200px;height:100px;border-radius:50px!important;font-size:25
         background-size: 100%;
     }
     .logo-image {
-        background-image: url(../styles/images/logo2x.png);
+        background-image: url(../styles/images/logo.png);
         background-size: 100%;
     }
     .w-icon {
