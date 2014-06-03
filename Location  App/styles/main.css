@@ -11,8 +11,8 @@
     background-image: url(../styles/images/logo.png);
     background-repeat: no-repeat;
     background-position:center;
-    width: 319px;
-    height: 60px;
+    width: 87px;
+    height: 85px;
     display: block;
     margin: 0px auto;
 }
@@ -436,8 +436,8 @@ display:block;width:200px;height:100px;border-radius:50px!important;font-size:25
 }
 
 #friendsApp .app-logo {
-    width: 247px;
-    height: 60px;
+    width: 87px;
+    height: 85px;
     background-position:center;
     background: transparent url(images/logo.png) no-repeat 0 0;
 }
