@@ -27,7 +27,7 @@
             //setResults("Waiting for geolocation information...");
             // Update the watch every second.
             var options = {
-                frequency: 1000,
+                frequency: 5000,
                 enableHighAccuracy: true
             }
             that._watchID = navigator.geolocation.watchPosition(
