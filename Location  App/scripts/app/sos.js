@@ -18,7 +18,8 @@
         // If watch is running, clear it now. Otherwise, start it.
         button = document.getElementById("sos");
                      
-        if (that._watchID != null) {
+        if (that._watchID = null) {
+            console.log("SOS has been disabled");
             navigator.geolocation.clearWatch(that._watchID);
             that._watchID = null;
                          
