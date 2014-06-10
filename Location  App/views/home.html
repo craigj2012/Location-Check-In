@@ -5,18 +5,20 @@
          data-role="view"
          data-title="Home">
 
-        <h3>Welcome!</h3>
+         <div data-role="header"></div>
+            <div class="logo-header" style="text-align:left"></div>
+            
         <p>
             NOV Protect is an test application to locate
             NOV employees in a HRD when a crisis emerges.
         </p>
-        <br>
+        
+        <a data-role="button" data-icon="check"data-click="app.checkin" id="check_in">Check In</a>
+        <a data-role="button" data-icon="alert" data-click="app.sos" id="sos">Send SOS</a>
+			<br>
         <div class="results">
             <div id="results" class="desc"></div>
         </div>
-        <a data-role="button" data-icon="check"data-click="app.checkin" id="check_in">Check In</a>
-        <a data-role="button" data-icon="alert" data-click="app.sos" id="sos">Send SOS</a>
-
         <div data-role="footer">
             <div data-role="tabstrip">
                 <a href="views/home.html" data-icon="home">Home</a>

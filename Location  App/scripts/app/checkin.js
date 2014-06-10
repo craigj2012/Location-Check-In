@@ -19,12 +19,13 @@
                 var data = app.everlive.data('Check_In');
                 data.create({'Phone_Type':device.platform,'Phone_UUID':device.uuid, 'Location':location,  },
                             function(data) {
-                                alert(JSON.stringify(data));
+                                //alert(JSON.stringify(data));
                             },
                             function(error) {
                                 alert(JSON.stringify(error));
                             });
                 //position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                /**
                 app.setResults('Phone Type: ' + device.platform + '<br />' +
                                'Phone UUID: ' + device.uuid + '<br />' +
                                'Latitude: ' + position.coords.latitude + '<br />' +
@@ -36,7 +37,7 @@
                                'Speed: ' + position.coords.speed + '<br />' +
                                'Timestamp: ' + new Date(position.timestamp).toLocaleTimeString().split(" ")[0] + '<br />');
                 
-                
+                **/
             },
             function (error) {
                 //default map coordinates

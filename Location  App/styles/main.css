@@ -16,12 +16,21 @@
     display: block;
     margin: 0px auto;
 }
+.logo-header {
+    background-image: url(../styles/images/logo.png);
+    background-repeat: no-repeat;
+    
+    width: 87px;
+    height: 85px;
+    display: block;
+    margin: 0px auto;
+}
 /*Button Styles*/
 #check_in
 {
     
 display:block;
-    width:200px;
+    width:300px;
     height:100px;
     border-radius:50px!important;
     font-size:25px;
@@ -29,11 +38,20 @@ display:block;
     line-height:100px;
     text-align:center;
     background:green!important;
+    vertical-align:middle;
 }
 #sos
 {
-    
-display:block;width:200px;height:100px;border-radius:50px!important;font-size:25px;color:#fff;line-height:100px;text-align:center;background:red!important;
+    vertical-align:middle;
+display:block;
+    width:300px;
+    height:100px;
+    border-radius:50px!important;
+    font-size:25px;
+    color:#fff;
+    line-height:100px;
+    text-align:center;
+    background:red!important;
 }
 
 

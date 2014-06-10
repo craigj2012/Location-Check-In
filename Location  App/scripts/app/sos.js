@@ -18,7 +18,7 @@
         // If watch is running, clear it now. Otherwise, start it.
         button = document.getElementById("sos");
                      
-        if (that._watchID = null) {
+        if (that._watchID != null) {
             console.log("SOS has been disabled");
             navigator.geolocation.clearWatch(that._watchID);
             that._watchID = null;
@@ -34,7 +34,7 @@
             that._watchID = navigator.geolocation.watchPosition(
             function(position) {
                var location = new Everlive.GeoPoint(position.coords.longitude , position.coords.latitude);
-                console.log("Callback");
+                //console.log("Callback");
                 var data = app.everlive.data('SOS');
                 data.create({'Altitude':position.coords.altitude,
                     		 'Accuracy':position.coords.accuracy, 
@@ -44,13 +44,14 @@
                     		 'Speed':position.coords.speed
                 			},
                             function(data) {
-                                alert(JSON.stringify(data));
+                               // alert(JSON.stringify(data));
+                                navigator.notification.alert("SOS Has been sent. Contact GSOC");
                             },
                             function(error) {
                                 alert(JSON.stringify(error));
                             });
                 //position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                app.setResults('Phone Type: ' + device.platform + '<br />' +
+               /** app.setResults('Phone Type: ' + device.platform + '<br />' +
                                'Phone UUID: ' + device.uuid + '<br />' +
                                'Latitude: ' + position.coords.latitude + '<br />' +
                                'Longitude: ' + position.coords.longitude + '<br />' +
@@ -60,7 +61,9 @@
                                'Heading: ' + position.coords.heading + '<br />' +
                                'Speed: ' + position.coords.speed + '<br />' +
                                'Timestamp: ' + new Date(position.timestamp).toLocaleTimeString().split(" ")[0] + '<br />');
+                **/
             }, function(error) {
+                
                 navigator.notification.alert("Unable to determine current location. Cannot connect to GPS satellite.",
                                              function () {
                                              }, "Location failed", 'OK');
@@ -68,40 +71,7 @@
             button.innerHTML = "SOS Activated";
         }
 
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                var location = new Everlive.GeoPoint(position.coords.longitude , position.coords.latitude);
-                //var el = new Everlive('WRqlNRftKg0AiOlj');
-                var data = app.everlive.data('Check_In');
-                data.create({'Phone_Type':device.platform,'Phone_UUID':device.uuid, 'Location':location,  },
-                            function(data) {
-                                alert(JSON.stringify(data));
-                            },
-                            function(error) {
-                                alert(JSON.stringify(error));
-                            });
-                //position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                app.setResults('Phone Type: ' + device.platform + '<br />' +
-                               'Phone UUID: ' + device.uuid + '<br />' +
-                               'Latitude: ' + position.coords.latitude + '<br />' +
-                               'Longitude: ' + position.coords.longitude + '<br />' +
-                               'Altitude: ' + position.coords.altitude + '<br />' +
-                               'Accuracy: ' + position.coords.accuracy + '<br />' +
-                               'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
-                               'Heading: ' + position.coords.heading + '<br />' +
-                               'Speed: ' + position.coords.speed + '<br />' +
-                               'Timestamp: ' + new Date(position.timestamp).toLocaleTimeString().split(" ")[0] + '<br />');
-            },
-            function (error) {
-                //default map coordinates
-                navigator.notification.alert("Unable to determine current location. Cannot connect to GPS satellite.",
-                                             function () {
-                                             }, "Location failed", 'OK');
-            }, {
-                timeout: 30000,
-                enableHighAccuracy: true
-            }
-            );
+       
     }
     app.setResults = function (value) {
         if (!value) {
