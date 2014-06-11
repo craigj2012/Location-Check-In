@@ -31,6 +31,7 @@
                 frequency: 5000,
                 enableHighAccuracy: true
             }
+            navigator.notification.alert("SOS Has been sent. Contact GSOC");
             that._watchID = navigator.geolocation.watchPosition(
             function(position) {
                var location = new Everlive.GeoPoint(position.coords.longitude , position.coords.latitude);
@@ -45,7 +46,7 @@
                 			},
                             function(data) {
                                // alert(JSON.stringify(data));
-                                navigator.notification.alert("SOS Has been sent. Contact GSOC");
+                                
                             },
                             function(error) {
                                 alert(JSON.stringify(error));
