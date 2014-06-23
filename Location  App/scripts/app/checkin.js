@@ -2,30 +2,46 @@
     var app = global.app = global.app || {};
 
     app.checkin = function (e) {
+        var currentUser,currentUserData, user;
         if (isLoggedIn=false) {
             navigator.notification.alert("Please Log into Application on Login Tab", alertDismissed
                                          , "Login", 'OK');
             return false;
         }
-        //Gather Location and send to Server
+        app.everlive.Users.currentUser()
+                        .then(function (data) {
+                            currentUser = kendo.observable({ data: null });
+                            currentUserData = data.result;
+                            currentUser.set('data', currentUserData);
+                            user=currentUser.get("data.DisplayName");
+                        });
+        
         console.log("Running Geo Location");
         var that = this,
             position;
-
+        
+        
+		//Gather Location and send to Server
         navigator.geolocation.getCurrentPosition(
             function (position) {
+                
                 var location = new Everlive.GeoPoint(position.coords.longitude , position.coords.latitude);
-                //var el = new Everlive('WRqlNRftKg0AiOlj');
-                var data = app.everlive.data('Check_In');
-                data.create({'Phone_Type':device.platform,'Phone_UUID':device.uuid, 'Location':location,  },
+                var data = app.everlive.data('CHECK_IN');
+                data.create({
+                    			'Phone_Type':device.platform,
+                    			'Phone_UUID':device.uuid, 
+                    			'Name':user ,
+                    			'GeoLocation':location
+                    			
+                			},
                             function(data) {
-                                //alert(JSON.stringify(data));
+                                alert("Check In Sent",function(){},'Check In Sent','OK');
                             },
                             function(error) {
                                 alert(JSON.stringify(error));
                             });
-                //position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                /**
+                
+                /** View Results in app for Testing
                 app.setResults('Phone Type: ' + device.platform + '<br />' +
                                'Phone UUID: ' + device.uuid + '<br />' +
                                'Latitude: ' + position.coords.latitude + '<br />' +
@@ -40,7 +56,7 @@
                 **/
             },
             function (error) {
-                //default map coordinates
+                //default Message when GPS not available
                 navigator.notification.alert("Unable to determine current location. Cannot connect to GPS satellite.",
                                              function () {
                                              }, "Location failed", 'OK');

@@ -26,3 +26,4 @@ var appSettings = {
         removeActivityConfirm: 'Are you sure you want to delete this Activity?'
     }
 };
+

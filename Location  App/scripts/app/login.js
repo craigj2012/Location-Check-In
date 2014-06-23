@@ -40,7 +40,7 @@ app.Login = (function () {
             var password = $loginPassword.val();
 
             // Authenticate using the username and password
-            app.everlive.Users.login(username, password)
+                        app.everlive.Users.login(username, password)
             .then(function () {
                 // EQATEC analytics monitor - track login type
                 
@@ -50,6 +50,7 @@ app.Login = (function () {
             .then(function () {
 
                 app.mobileApp.navigate('views/home.html');
+                
             })
             .then(null,
                   function (err) {

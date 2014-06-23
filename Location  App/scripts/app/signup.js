@@ -17,14 +17,9 @@ app.Signup = (function () {
         // Register user after required fields (username and password) are validated in Backend Services
         var signup = function () {
 
-            dataSource.Gender = parseInt(dataSource.Gender);
-            var birthDate = new Date(dataSource.BirthDate);
-
-            if (birthDate.toJSON() === null) {
-                birthDate = new Date();
-            }
-
-            dataSource.BirthDate = birthDate;
+            
+           
+          
 
             Everlive.$.Users.register(
                 dataSource.Username,
@@ -65,10 +60,7 @@ app.Signup = (function () {
                 Password: '',
                 DisplayName: '',
                 Email: '',
-                Gender: '0',
-                About: '',
-                Friends: [],
-                BirthDate: new Date()
+                Phone:''
             });
             kendo.bind($('#signup-form'), dataSource, kendo.mobile.ui);
         };
